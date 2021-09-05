@@ -2,8 +2,9 @@ import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
 import Booking from './components/Booking.js';
+import Home from './components/Home.js';
 
-const app = {
+export const app = {
   initPages: function(){
     const thisApp = this;
 
@@ -54,6 +55,12 @@ const app = {
         link.getAttribute('href') == '#' + pageId
       );
     }
+  },
+
+  initHome: function(){
+    const thisApp = this;
+    const homeContainer = document.querySelector(select.containerOf.homePage);
+    thisApp.home = new Home(homeContainer);
   },
 
   initMenu: function(){
@@ -112,6 +119,7 @@ const app = {
     //console.log('classNames:', classNames);
     //console.log('settings:', settings);
     //console.log('templates:', templates);
+    thisApp.initHome();
     thisApp.initPages();
     thisApp.initData();
     //thisApp.initMenu();

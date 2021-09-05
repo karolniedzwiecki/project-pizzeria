@@ -1,0 +1,171 @@
+.home-wrapper {
+  margin: 40px auto;
+  padding: 60px;
+  border-radius: $radius;
+  background-color: $color-light;
+}
+
+.options{
+  display: flex;
+
+  .box{
+    width: 50%;
+    height: 100px;
+    margin: 2.5px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    border-radius: 5px;
+    position: relative;
+
+    h3 {
+      font-family: $font-header;
+      font-size: 26px;
+      font-weight: 600;
+      padding: 0;
+      margin: 0;
+      left: 65px;
+      bottom: 30px;
+      position: absolute;
+      color: white;
+      transition-duration: 1s;
+    }
+  }
+
+  .box:hover h3 {
+    transform: translateY(-10px);
+    transition: 0.5s linear;
+  }
+
+  .order-online{
+    background-image: url(../images/pizza-1.jpg);
+    color: $color-light;
+    cursor: pointer;
+  }
+
+  .book-a-table{
+    background-image: url(../images/pizza-2.jpg);
+    color: $color-light;
+    cursor: pointer;
+  }
+}
+
+.opening-hours{
+  width: 99%;
+  height: 100px;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: $color-main;
+  color: $color-light;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+
+  h3{
+    font-size: 26px;
+    font-family: $font-header;
+    margin: 0;
+  }
+
+  p {
+    font-size: 16px;
+    font-family: $font-text;
+    margin: 5px 0;
+  }
+}
+
+/* carousel */
+
+.main-carousel{
+  margin-top: 50px;
+}
+
+.carousel-cell{
+  width: 100%;
+  height: 240px;
+  display: flex;
+  font-size: 14px;
+
+  h3{
+    text-transform: uppercase;
+    font-family: $font-header;
+  }
+
+  p {
+    font-family: $font-text;
+  }
+
+  img{
+    margin-top: 15px;
+    height: 180px;
+    margin-right: 10px;
+  }
+}
+
+.flickity-button {
+  display: none;
+}
+
+/* gallery */
+.gallery{
+  margin-top: 80px;
+}
+
+.gallery-row {
+  margin: 0 0 5px 0;
+  width: 600px;
+  display: flex;
+}
+
+.gallery-image {
+  display: flex;
+  position: relative;
+   object-fit: cover;
+  margin: 0;
+  padding: 0;
+  height: 200px;
+
+  img {
+    width: 98%;
+    height: 98%;
+  }
+}
+
+.gallery-layer {
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  background-color: rgba(1,1,1,0.3);
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  margin: 5px;
+  font-size: 25px;
+}
+
+.logo:hover{
+  color: $color-main;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.gallery-layer-button {
+  color: $color-light;
+  font-family: $font-text;
+}
+
+.gallery-image:hover {
+  .gallery-layer {
+    visibility: visible;
+  }
+}
