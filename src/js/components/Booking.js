@@ -155,10 +155,10 @@ class Booking{
         console.log('add class booking');
       } else {
         table.classList.remove(classNames.booking.tableBooked);
-        //console.log('removed class booking');
-        table.addEventListener('click', function() {
-          table.classList.toggle(classNames.booking.tableBooked);
-        });
+        console.log('removed class booking');
+        // table.addEventListener('click', function() {
+        //   table.classList.toggle(classNames.booking.tableBooked);
+        // });
       }
       console.log('thisBooking.booked', thisBooking.booked);
     }
@@ -195,22 +195,29 @@ class Booking{
 
       const clicked = event.target;
 
+
       thisBooking.tableRef = clicked.getAttribute(settings.booking.tableIdAttribute);
-      thisBooking.tableSelected = parseInt(thisBooking.tableRef);
+      if(thisBooking.tableRef){
+        thisBooking.tableSelected = parseInt(thisBooking.tableRef);
 
 
-      if(!clicked.classList.contains(classNames.booking.tableBooked) && !clicked.classList.contains(classNames.booking.tableSelected)) {
-        thisBooking.removeTables();
-        clicked.classList.add(classNames.booking.tableSelected);
-        thisBooking.tableNumber = thisBooking.tableSelected;
+        const isTableBooked = clicked.classList.contains(classNames.booking.tableBooked);
+        const isTableSelected = clicked.classList.contains(classNames.booking.tableSelected);
 
 
-      } else if (!clicked.classList.contains(classNames.booking.tableBooked) && clicked.classList.contains(classNames.booking.tableSelected)) {
-        thisBooking.removeTables();
+        if(!isTableBooked && !isTableSelected) {
+          thisBooking.removeTables();
+          clicked.classList.add(classNames.booking.tableSelected);
+          thisBooking.tableNumber = thisBooking.tableSelected;
 
 
-      } else if (clicked.classList.contains(classNames.booking.tableBooked)) {
-        alert('This table was booked!');
+        } else if (!isTableBooked && isTableSelected) {
+          thisBooking.removeTables();
+
+
+        } else if (isTableBooked) {
+          alert('This table was booked!');
+        }
       }
     });
   }
@@ -234,8 +241,8 @@ class Booking{
       date: thisBooking.datePicker.value,
       hour: thisBooking.hourPicker.value,
       table: thisBooking.tableNumber,
-      duration: thisBooking.dom.hoursAmount.value,
-      ppl: thisBooking.dom.peopleAmount.value,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
       phone: thisBooking.dom.phone.value,
       address: thisBooking.dom.address.value,
       starters: [],

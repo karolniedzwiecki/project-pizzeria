@@ -28,9 +28,10 @@ class DatePicker extends BaseWidget{
           return (date.getDay() === 1);
         }
       ],
-      onChange: function(selectedDates, dateStr) {
-        thisWidget.value = dateStr;
-      },
+      onChange:
+        function(selectedDates, dateStr) {
+          thisWidget.value = dateStr;
+        },
     });
   }
   parseValue(value){
